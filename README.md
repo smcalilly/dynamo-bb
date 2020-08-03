@@ -10,6 +10,11 @@ More importantly, you might sometimes work with Dynamo tables that are unfortuna
 ## How does it work?
 DynamoBB can create a cache after a full table scan, for when you need to work with an entire table in memory. This is useful when you're doing stuff like writing a CSV. To do this, you need to initialize the DynamoBB class with a Dynamo table client. 
 
+### Install
+```
+pip install git+https://git@github.com/smcalilly/dynamo-bb.git
+```
+
 ### Setup the clients:
 ```
 dynamo_clients = {
