@@ -12,7 +12,7 @@ DynamoBB can create a cache after a full table scan, for when you need to work w
 
 ### Install
 ```
-pip install git+https://git@github.com:smcalilly/dynamoBB.git
+pip install git+https://git@github.com/smcalilly/dynamoBB.git
 ```
 
 ### Setup the clients:
