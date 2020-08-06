@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='dynamo-bb',
-    version='0.0.1',
+    version='0.0.11',
     description='Baby wrapper classes for interfacing with DynamoDB',
     url='git@github.com:smcalilly/dynamo-bb.git',
     author='Sam McAlilly',
