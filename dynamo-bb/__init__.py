@@ -1,1 +1,1 @@
-from .dynamobb import __all__
+from .dynamobb import *
