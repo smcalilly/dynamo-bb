@@ -42,6 +42,9 @@ class DynamoClient:
 
         return records
 
+    def update_item(self, **kwargs):
+        return self.table.update_item(**kwargs)
+
     def get_table_metadata(self):
         return {
             'table_name': self.table.table_name,
