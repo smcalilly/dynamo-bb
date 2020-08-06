@@ -4,11 +4,11 @@ setup(
     name='dynamo-bb',
     version='0.0.11',
     description='Baby wrapper classes for interfacing with DynamoDB',
-    url='git@github.com:smcalilly/dynamo-bb.git',
+    url='git@github.com:smcalilly/dynamoBB.git',
     author='Sam McAlilly',
     author_email='smcalilly@gmail.com',
-    license='unlicense',
-    packages=['dynamo-bb'],
+    license='MIT',
+    packages=['dynamoBB'],
     install_requires=[
         'boto3'
     ],
