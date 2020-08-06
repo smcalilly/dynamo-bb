@@ -59,7 +59,6 @@ client = dynamobb.DynamoClient(table='customers', 'AttributesToGet': ['customerI
 customer = client.get_item(Key={'customerId': customer_id})
 ```
 
-Since it's essentially a wrapper class for Boto3, you can do any normal operation you would do with Boto3.
 ### Basic Boto3 method
 This method directly scans DynamoDB and has no cache.
 ```
