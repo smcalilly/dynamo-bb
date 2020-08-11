@@ -15,8 +15,9 @@ DynamoBB can create a cache after a full table scan, for when you need to work w
 pip install git+https://git@github.com/smcalilly/dynamoBB.git
 ```
 
-### Setup the clients:
+## Usage
 ```
+# setup the clients 
 dynamo_clients = {
     'customers': {
         'table_name': 'customers',
@@ -31,24 +32,17 @@ dynamo_clients = {
         }
     }
 }
-```
 
-### Initalize the cache
-```
+# initialize the cache
 DYNAMO = dynamobb.DynamoMap(DYNAMO_CLIENTS)
-```
 
-### establish the individual tables
-```
+# establish the individual table classes
 CUSTOMERS = DYNAMO.tables['customers']
 LOCATIONS = DYNAMO.tables['locations']
-```
 
-### Join a customer and location table
-```
+# join a customer and location table
 customer_locations = DYNAMO.join(LOCATIONS, where={'customerId': customer['customerId']})
 ```
-
 
 ## Don't want a cache?
 You will probably run into issues if you're doing write operations or using this in a Lambda that doesn't usually start cold. In that case, just use the basic wrapper classes like this:
