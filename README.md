@@ -1,5 +1,5 @@
 # DynamoBB
-DynamoBB is a baby package for interfacing with DynamoDB. It wraps Boto3. This is an experimental package, so use in production at your own risk.
+DynamoBB is a *baby* (aka bb) package for interfacing with DynamoDB. It wraps Boto3. This is an experimental package, so use in production at your own risk.
 
 ## Why would I want to wrap Boto3?
 Boto3 is a self-described low-level package meant for using AWS resources, so it's easy to encapsulate some of the details that might lead to messy code.
