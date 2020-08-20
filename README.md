@@ -8,7 +8,7 @@ More importantly, you might sometimes work with Dynamo tables that are unfortuna
 
 
 ## How does it work?
-DynamoBB can create a cache after a full table scan, for when you need to work with an entire table in memory. This is useful when you're doing stuff like writing a CSV. To do this, you need to initialize the DynamoBB class with a Dynamo table client. 
+DynamoBB creates a cache after a full table scan, for when you need to work with an entire table in memory. This is useful when you're doing stuff like writing a CSV. To do this, you need to initialize the DynamoBB class with a Dynamo table client. 
 
 ### Install
 ```
@@ -34,18 +34,18 @@ dynamo_clients = {
 }
 
 # initialize the cache
-DYNAMO = dynamobb.DynamoMap(DYNAMO_CLIENTS)
+DYNAMO = dynamobb.DynamoMap(dynamo_clients)
 
 # establish the individual table classes
-CUSTOMERS = DYNAMO.tables['customers']
-LOCATIONS = DYNAMO.tables['locations']
+customers = DYNAMO.tables['customers']
+locations = DYNAMO.tables['locations']
 
 # join a customer and location table
-customer_locations = DYNAMO.join(LOCATIONS, where={'customerId': customer['customerId']})
+customer_locations = DYNAMO.join(locations, where={'customerId': customers['customerId']})
 ```
 
 ## Don't want a cache?
-You will probably run into issues if you're doing write operations or using this in a Lambda that doesn't usually start cold. In that case, just use the basic wrapper classes like this:
+Since the above example creates a cache, you will probably run into issues if you're doing write operations or using this in a Lambda that doesn't usually start cold. In that case, just use the basic wrapper classes like this:
 
 ### Get an item from a table
 ```
@@ -57,4 +57,8 @@ customer = client.get_item(Key={'customerId': customer_id})
 This method directly scans DynamoDB and has no cache.
 ```
 client.scan(table) 
+```
+This is a baby library and wraps Boto3 instead of inheriting from (as I write this, now I think I should change that !). Because of this, the library doesn't include all of the Boto3 methods for Dynamo. That's no problem, because thanks to Python, you can also use the Boto3 instance like this:
+```
+client.table.update_item(item)
 ```
