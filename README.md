@@ -4,18 +4,20 @@ DynamoBB is a *baby* (aka bb) package for interfacing with DynamoDB. It wraps Bo
 ## Why would I want to wrap Boto3?
 Boto3 is a self-described low-level package meant for using AWS resources, so it's easy to encapsulate some of the details that might lead to messy code.
 
-More importantly, you might sometimes work with Dynamo tables that are unfortunately designed more like a relational database than NoSQL. In that case, DynamoBB provides an interface to join two tables together.
+More importantly, you might sometimes work with Dynamo tables that are designed like a relational database. In that case, DynamoBB provides an interface to join two tables together.
 
 
 ## How does it work?
-DynamoBB creates a cache after a full table scan, for when you need to work with an entire table in memory. This is useful when you're doing stuff like writing a CSV. To do this, you need to initialize the DynamoBB class with a Dynamo table client. 
+DynamoBB creates a cache after a full table scan. This allows you to work with an entire table in memory. This is useful when you're doing stuff like writing a CSV and need the table to reference. 
 
 ### Install
 ```
 pip install git+https://git@github.com/smcalilly/dynamoBB.git
 ```
 
+
 ## Usage
+To setup the in-memory cache, you need to initialize the DynamoBB class with a Dynamo table client. 
 ```
 # setup the clients 
 dynamo_clients = {
