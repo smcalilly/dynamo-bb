@@ -1,4 +1,4 @@
-""" dynamobb = some baby classes to interface with DynamoDB"""
+""" dynamobb = some baby classes to interface with DynamoDB """
 import boto3
 
 class DynamoClient:
@@ -13,10 +13,10 @@ class DynamoClient:
     """
 
     def __init__(self, table):
-        self.table = self.__set_table(table)
+        self.table = self._init_table(table)
         self.kwargs = table.get('kwargs', {})
 
-    def __set_table(self, table):
+    def _init_table(self, table):
         try:
             table_name = table.get('table_name')
             return boto3.resource('dynamodb').Table(table_name)
